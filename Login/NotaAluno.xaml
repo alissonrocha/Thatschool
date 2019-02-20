@@ -1,0 +1,21 @@
+﻿<Window x:Class="Login.NotaAluno"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="NotaAluno" Height="469.149" Width="652.128" Closing="Window_Closing">
+    <Grid>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="624" DropDownClosed="comboBox_DropDownClosed" SelectionChanged="comboBox_SelectionChanged"/>
+         <StackPanel HorizontalAlignment="Left" Height="297" Margin="10,131,0,0" VerticalAlignment="Top" Width="624" Background="#FF959494">
+            <DataGrid x:Name="DadosNota" Height="297" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding titulo}" Header="Titulo da prova" Width="550"/>
+                    <DataGridTextColumn Binding="{Binding nota}" Header="Nota" Width="70"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Label Content="Materia" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

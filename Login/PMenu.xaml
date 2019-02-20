@@ -1,0 +1,28 @@
+﻿<Window x:Class="Login.PMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="PMenu" Height="383.647" Width="661.17" Closing="Window_Closing">
+    <Grid>
+        <Button HorizontalAlignment="Left" Margin="28,220,0,0" VerticalAlignment="Top" Width="120" Height="82" Click="B_prova_Click" FontSize="14" BorderBrush="White" Foreground="#FFFBFAFA">
+            <StackPanel>
+                <Image Source="Images/ImageProva.png" />
+            </StackPanel>
+        </Button>
+        <Label x:Name="label" Content="Selecione a opção desejada:" HorizontalAlignment="Left" Margin="223,145,0,0" VerticalAlignment="Top" Height="35" Width="218" FontSize="16"/>
+        <Button HorizontalAlignment="Left" Margin="148,220,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" Height="82" FontSize="14" BorderBrush="#FFF9F9F9">
+            <StackPanel>
+                <Image Source="Images/CorrecaoProva.png" />
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="268,220,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click_1" Height="82" FontSize="14" BorderBrush="#FFF9F9F9">
+            <StackPanel>
+                <Image Source="Images/prova-png-3.png" Height="78" />
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Window>
