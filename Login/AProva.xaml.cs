@@ -160,5 +160,21 @@ namespace Login
             }
         }
 
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            switch (this.WindowState)
+            {
+                case WindowState.Maximized:
+                    break;
+                case WindowState.Minimized:
+                    // Do your stuff
+                    MessageBox.Show("Não minimize!");
+                    break;
+                case WindowState.Normal:
+
+                    break;
+            }
+        }
+
     }
 }
