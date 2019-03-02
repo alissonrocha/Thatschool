@@ -29,7 +29,10 @@ namespace Login
         private void B_prova_Click(object sender, RoutedEventArgs e)
         {
             AProva prova = new AProva(codigo);
-            prova.Show();
+            if (prova.IsActive)
+            {
+                prova.Show();
+            }
             sair = false;
             this.Close();
         }
