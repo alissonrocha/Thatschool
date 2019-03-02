@@ -33,9 +33,21 @@ namespace Login
             con.Open();
             cmd.Connection = con;
             cmd.CommandText = query;
-            a = cmd.ExecuteScalar().ToString();
+            
+            try { 
+                a = cmd.ExecuteScalar().ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Não há provas","codigo_prof_mate");
+                a = "-1";
+                this.Show();
+                //this.Close();
+            }
+
             con.Close();
             return a;
+            
         }
         public AProva(int cod)
         {
@@ -91,7 +103,8 @@ namespace Login
             DataSet tb = new DataSet();
             MySqlConnection con = new MySqlConnection("server=localhost;user id=root;password=;database=tschoolbd"); // Conecta ao banco de dados
             con.Open();
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT p.titulo FROM ts_prova p LEFT JOIN ts_provasfinalizadas pf ON p.codigo=pf.codigo_prova INNER JOIN ts_prof_mate pm ON pm.codigo=p.codigo_prof WHERE (pf.codigo_aluno != " + captura("SELECT cod_tipo FROM ts_usuarios WHERE codigo=" + codigo) + " OR pf.codigo_prova IS NULL) AND p.status = 1 AND pm.codigo =  " + captura("SELECT m.codigo_prof_mate FROM ts_matricula m INNER JOIN ts_aluno a ON m.cod_aluno=a.codigo INNER JOIN ts_usuarios u ON u.cod_tipo=a.codigo WHERE u.codigo=" + codigo), con);
+            //MySqlDataAdapter da = new MySqlDataAdapter("SELECT p.titulo FROM ts_prova p LEFT JOIN ts_provasfinalizadas pf ON p.codigo=pf.codigo_prova INNER JOIN ts_prof_mate pm ON pm.codigo=p.codigo_prof WHERE (pf.codigo_aluno != " + captura("SELECT cod_tipo FROM ts_usuarios WHERE codigo=" + codigo) + " OR pf.codigo_prova IS NULL) AND p.status = 1 AND pm.codigo =  " + captura("SELECT m.codigo_prof_mate FROM ts_matricula m INNER JOIN ts_aluno a ON m.cod_aluno=a.codigo INNER JOIN ts_usuarios u ON u.cod_tipo=a.codigo WHERE u.codigo=" + codigo), con);
+            MySqlDataAdapter da = new MySqlDataAdapter("SELECT p.titulo FROM ts_prova p LEFT JOIN ts_provasfinalizadas pf ON p.codigo=pf.codigo_prova INNER JOIN ts_prof_mate pm ON pm.codigo=p.codigo_prof WHERE (pf.codigo_aluno != " + captura("SELECT cod_tipo FROM ts_usuarios WHERE codigo=" + codigo) + " OR pf.codigo_prova IS NULL) AND pm.codigo =  " + captura("SELECT m.codigo_prof_mate FROM ts_matricula m INNER JOIN ts_aluno a ON m.cod_aluno=a.codigo INNER JOIN ts_usuarios u ON u.cod_tipo=a.codigo WHERE u.codigo=" + codigo), con);
             da.Fill(tb,"aluno");
             int a=0;
             while (tb.Tables["aluno"].Rows.Count > a)
@@ -175,6 +188,8 @@ namespace Login
                     break;
             }
         }
+
+        
 
     }
 }
