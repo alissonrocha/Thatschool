@@ -23,13 +23,13 @@ namespace Login
         public AMenu(int cod)
         {
             InitializeComponent();
-            codigo = cod;
+            codigo = cod; //Código da tabela ts_usuarios
         }
 
         private void B_prova_Click(object sender, RoutedEventArgs e)
         {
             AProva prova = new AProva(codigo);
-            if (prova.IsActive)
+            if (prova.IsActive==false)
             {
                 prova.Show();
             }
@@ -48,7 +48,7 @@ namespace Login
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (sair) {
-                if (MessageBox.Show("Deseja Sair?", "Sair", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Tem certeza que deseja sair?", "Sair", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     MainWindow a = new MainWindow();
                     a.Show();

@@ -38,7 +38,7 @@ namespace Login
         {
             if (sair)
             {
-                if (MessageBox.Show("Deseja Sair?", "Sair", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Tem certeza que deseja sair?", "Sair", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     MainWindow a = new MainWindow();
                     a.Show();

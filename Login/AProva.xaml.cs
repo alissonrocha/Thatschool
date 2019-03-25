@@ -39,10 +39,10 @@ namespace Login
             }
             catch
             {
-                MessageBox.Show("Não há provas","codigo_prof_mate");
+                MessageBox.Show("Não há provas disponíveis","Erro!");
                 a = "-1";
                 this.Show();
-                //this.Close();
+                this.Close();
             }
 
             con.Close();

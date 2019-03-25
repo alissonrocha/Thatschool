@@ -60,12 +60,12 @@ namespace Login
                 else
                 {
                     carregar.Visibility = Visibility.Hidden;
-                    MessageBox.Show("Não existes");
+                    MessageBox.Show("Dados incorretos","Erro!");
                 }
                 con.Close();
             }else
             {
-                MessageBox.Show("Pow jamelão!");
+                MessageBox.Show("Insira o usuário e a senha","Erro!");
             }
         }
     }

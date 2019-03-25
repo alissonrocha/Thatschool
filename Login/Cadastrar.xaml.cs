@@ -80,7 +80,7 @@ namespace Login
                 Encher_materia(2);
                 comboBox13.IsEnabled = true;
             }
-            else MessageBox.Show("Erro! CPF não encontrado!");
+            else MessageBox.Show("CPF não encontrado!","Erro!");
         }
         void Encher_materia(int ab)
         {
@@ -254,7 +254,7 @@ namespace Login
             else if (textBox16.Text == "") MessageBox.Show("Insira o CPF!");
             else if (comboBox2.Text == "") MessageBox.Show("Insira o UF!");
             else if (comboBox11.Text == "") MessageBox.Show("Insira o Curso!");
-            else if(MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //else if(MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 BancodeDados("INSERT INTO ts_aluno(nome,sexo,endereco,cidade,rg,cpf,uf,cod_curso) VALUES('" + textBox.Text + "','" + comboBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox17.Text + "','" + textBox16.Text + "','" + comboBox2.Text + "'," + Convert.ToInt16(captura("SELECT codigo FROM ts_curso WHERE titulo='" + comboBox11.Text.Split('-')[0] + "' AND periodo='" + comboBox11.Text.Split('-')[1]+"'"))+")");
                 BancodeDados("INSERT INTO ts_usuarios(usuario,senha,tipo,cod_tipo) VALUES('" + textBox17.Text + "','" + textBox16.Text + "',1," + Convert.ToInt16(captura("SELECT MAX(codigo) FROM ts_aluno")) + ")");
@@ -277,7 +277,7 @@ namespace Login
             else if (comboBox10.Text == "") MessageBox.Show("Insira o Curso!");
             else if (comboBox5.Text == "") MessageBox.Show("Insira a Materia!");
             else if (textBox9.Text == "") MessageBox.Show("Insira o Numero de Registro!");
-            else if (MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //else if (MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 BancodeDados("INSERT INTO ts_professor(nome,sexo,endereco,cidade,rg,cpf,uf,N_Registro) VALUES('" + textBox4.Text + "','" + comboBox4.Text + "','" + textBox6.Text + "','" + textBox7.Text + "','" + textBox8.Text + "','" + textBox5.Text + "','" + comboBox3.Text + "',"+Convert.ToInt32(textBox9.Text)+ ")");
                 BancodeDados("INSERT INTO ts_usuarios(usuario,senha,tipo,cod_tipo) VALUES('" + textBox20.Text + "','" + textBox5.Text + "',2," + Convert.ToInt16(captura("SELECT MAX(codigo) FROM ts_professor")) + ")");
@@ -298,7 +298,7 @@ namespace Login
             else if(textBox22.Text == "") MessageBox.Show("Insira a Senha!");
             else if(comboBox6.Text == "") MessageBox.Show("Insira o Genero!");
             else if (comboBox7.Text == "") MessageBox.Show("Insira o UF!");
-            else if(MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //else if(MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 BancodeDados("INSERT INTO ts_secretario(nome,sexo,endereco,cidade,rg,cpf,uf) VALUES('"+ textBox10.Text+ "','" + comboBox6.Text + "','" + textBox12.Text + "','" + textBox13.Text + "','" + textBox14.Text + "','" + textBox21.Text + "','" + comboBox7.Text + "')");
                 BancodeDados("INSERT INTO ts_usuarios(usuario,senha,tipo,cod_tipo) VALUES('"+textBox11.Text+"','"+textBox22.Text+ "',3,"+Convert.ToInt16(captura("SELECT MAX(codigo) FROM ts_secretario")) +")");
@@ -313,11 +313,11 @@ namespace Login
             if (textBox24.Text == "" || textBox24.Text == " ") MessageBox.Show("Insira o nome do curso!");
             else if (comboBox8.Text == "") MessageBox.Show("Insira o periodo do curso!");
             else if(textBox25.Text == "" || textBox25.Text == "0") MessageBox.Show("Insira a quantidade valida de alunos no curso!");
-            else if (MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //else if (MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 BancodeDados("INSERT INTO ts_curso(titulo, periodo, qtd_aluno_s) VALUES('" + textBox24.Text + "','" + comboBox8.Text + "'," + Convert.ToInt32(textBox25.Text) +")");
                 comboBox8.Text = "";textBox24.Text = "";textBox25.Text = "";
-                MessageBox.Show("Curso cadastrado com sucesso!");
+                MessageBox.Show("Cadastro realizado com sucesso!");
             }
         }
 
@@ -326,11 +326,11 @@ namespace Login
             if (textBox23.Text == "") MessageBox.Show("Digita o nome!");
             else if (textBox26.Text == "") MessageBox.Show("Digita a carga horaria!");
             else if (comboBox9.Text == "") MessageBox.Show("Selecione o curso!");
-            else if(MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //else if(MessageBox.Show("Deseja Cadastrar?", "Cadastro", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 BancodeDados("INSERT INTO ts_materia(titulo, codigo_curso, carga_horaria) VALUES('" + textBox23.Text + "','" + Convert.ToInt16(captura("SELECT codigo FROM ts_curso WHERE titulo='"+ comboBox9.Text.Split('-')[0] + "' AND periodo='"+ comboBox9.Text.Split('-')[1] + "'")) + "'," + Convert.ToInt32(textBox26.Text) + ")");
                 textBox23.Text = "";textBox26.Text = "";comboBox9.Text = "";
-                MessageBox.Show("Materia cadastrada com sucesso!");
+                MessageBox.Show("Cadastro realizado com sucesso!");
             }
         }
 
